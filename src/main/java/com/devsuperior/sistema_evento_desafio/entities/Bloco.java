@@ -13,7 +13,10 @@ public class Bloco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer Id;
 
-    private Instant incio;
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
+    private Instant inicio;
+
+    @Column(columnDefinition = "TIMESTAMP WITHOUT TIME ZONE")
     private Instant fim;
 
     @ManyToOne
@@ -25,7 +28,7 @@ public class Bloco {
 
     public Bloco(Integer id, Instant incio, Instant fim) {
         Id = id;
-        this.incio = incio;
+        this.inicio = incio;
         this.fim = fim;
     }
 
@@ -38,11 +41,11 @@ public class Bloco {
     }
 
     public Instant getIncio() {
-        return incio;
+        return inicio;
     }
 
     public void setIncio(Instant incio) {
-        this.incio = incio;
+        this.inicio = incio;
     }
 
     public Instant getFim() {
